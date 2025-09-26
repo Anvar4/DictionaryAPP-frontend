@@ -74,13 +74,17 @@ export default function Register({ setIsAuthenticated }) {
     }
 
     if (phone && password) {
-      toast.success("Siz muvaffaqiyatli ro‘yxatdan o‘tdingiz, endi tizimga kiring!");
-      setIsAuthenticated(true);
-      localStorage.setItem("token", "true");
-      setTimeout(() => navigate("/login"), 2000);
-    } else {
-      toast.error("Barcha maydonlarni to‘ldiring!");
-    }
+        toast.success("Siz muvaffaqiyatli ro‘yxatdan o‘tdingiz, endi tizimga kiring!");
+        setIsAuthenticated(true);
+        
+        // saqlash
+        localStorage.setItem("userPhone", phone);
+        localStorage.setItem("userPassword", password);
+        localStorage.setItem("token", "true");
+
+        setTimeout(() => navigate("/login"), 2000);
+      }
+
   };
 
   return (
